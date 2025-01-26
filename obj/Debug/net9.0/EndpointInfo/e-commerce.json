@@ -385,16 +385,9 @@
             "type": "string",
             "nullable": true
           },
-          "photoUrl": {
-            "type": "string",
-            "nullable": true
-          },
           "ipAddress": {
             "type": "string",
             "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/Status"
           },
           "country": {
             "type": "string",
@@ -406,14 +399,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "Status": {
-        "enum": [
-          0,
-          1
-        ],
-        "type": "integer",
-        "format": "int32"
       }
     },
     "securitySchemes": {

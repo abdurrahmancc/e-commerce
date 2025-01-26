@@ -8,16 +8,16 @@ namespace e_commerce.data
     {
         public  AppDbContext(DbContextOptions<AppDbContext> options) : base(options){ }
         public DbSet<ProductModel> Products { get; set; }
-        public DbSet<UserModel> Users { get; set; }
+        public DbSet<UserRegisterModel> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserModel>()
+            modelBuilder.Entity<UserRegisterModel>()
                 .HasAlternateKey(u => u.Email);
 
-            modelBuilder.Entity<UserModel>()
+            modelBuilder.Entity<UserRegisterModel>()
                 .HasAlternateKey(u => u.Username);
 
-            modelBuilder.Entity<UserModel>()
+            modelBuilder.Entity<UserRegisterModel>()
                 .HasAlternateKey(u => new { u.Email, u.Username });
         }
     }

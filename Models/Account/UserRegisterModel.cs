@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace e_commerce.Models.Account
 {
-    public class UserModel
+    public class UserRegisterModel
     {
         [Key]
         public Guid Id { get; set; }
@@ -14,7 +14,7 @@ namespace e_commerce.Models.Account
         [MinLength(2, ErrorMessage = "Minimum 2 length of FirstName")]
         public string FirstName { get; set; }
 
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         [Required]
         [EmailAddress]
@@ -28,21 +28,23 @@ namespace e_commerce.Models.Account
         ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.")]
         public string Password { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        public string PhotoUrl { get; set; }
+        public string? PhotoUrl { get; set; }
 
         public List<UserRole> Role { get; set; } = new List<UserRole> { UserRole.User};
 
-        public string IPAddress { get; set; }
+        public string? IPAddress { get; set; }
 
         public Status Status { get; set; } = Status.Inactive;
 
-        public string Country { get; set; }
+        public string? Country { get; set; }
 
-        public string CountryCode { get; set; }
+        public string? CountryCode { get; set; }
 
         public List<string> LoginDevices { get; set; } = new List<string>();
+
+        public DateTime LastLoginDate { get; set; }
 
         public DateTime CreateAt { get; set; }
 

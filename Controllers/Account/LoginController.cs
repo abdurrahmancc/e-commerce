@@ -1,5 +1,6 @@
 ﻿using e_commerce.DTOs.Account;
 using e_commerce.Helpers;
+using e_commerce.Interfaces;
 using e_commerce.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,25 +10,24 @@ namespace e_commerce.Controllers.Account
     [Route("v1/api/login")]
     public class LoginController : ControllerBase
     {
-        private readonly JwtService _jwtService;
-
-        public LoginController(JwtService jwtService)
-        {
-            _jwtService = jwtService;
+        private readonly ILoginService _loginService;
+        public LoginController(ILoginService loginService) {
+            _loginService = loginService;
         }
 
 
         [HttpPost]
         public async Task<ActionResult> Login(LoginRequestDto loginInfo)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ApiResponse<object>.ErrorResponse(new List<string> { "Invalid email or password." }, 400, "Validation failed"));
+
+            var result = await _loginService.LoginUserService(loginInfo);
+
+            if (result == null) { 
+                 return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { "Invalid email or password." }, 404, "Validation failed"));
             }
 
-            var tokenValue = _jwtService.GenerateJwtToken(loginInfo.Email);
 
-            return Ok(ApiResponse<object>.SuccessResponse(new { Token = tokenValue }, 200, "Login successful")); ;
+            return Ok(ApiResponse<LoginResponseDto>.SuccessResponse(result, 200, "Login successful")); ;
         }
     }
 }

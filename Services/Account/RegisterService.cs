@@ -17,8 +17,9 @@ namespace e_commerce.Services.Account
             _mapper = mapper;
         }
         public async Task<RegisterResponseDto> RegisterUserService(RegisterRequestDto registerData) {
-            var newUser = _mapper.Map<UserModel>(registerData);
+            var newUser = _mapper.Map<UserRegisterModel>(registerData);
             newUser.Id = Guid.NewGuid();
+            newUser.LastLoginDate = DateTime.Now;
             newUser.CreateAt = DateTime.Now;
             newUser.UpdateAt = DateTime.Now;
             newUser.Username = newUser.Email.Split('@')[0];

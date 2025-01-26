@@ -19,9 +19,7 @@ namespace e_commerce.DTOs.Account
         ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.")]
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
-        public string PhotoUrl { get; set; }
         public string IPAddress { get; set; }
-        public Status Status { get; set; } = Status.Inactive;
         public string Country { get; set; }
         public string CountryCode { get; set; }
     }

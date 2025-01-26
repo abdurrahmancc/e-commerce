@@ -158,3 +158,5 @@ F:\sql-e-commerce\e-commerce\obj\Debug\net9.0\e-commerce.pdb
 F:\sql-e-commerce\e-commerce\obj\Debug\net9.0\e-commerce.genruntimeconfig.cache
 F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\e-commerce.pdb
 F:\sql-e-commerce\e-commerce\obj\Debug\net9.0\ref\e-commerce.dll
+F:\sql-e-commerce\e-commerce\obj\Debug\net9.0\e-commerce.sourcelink.json
+F:\sql-e-commerce\e-commerce\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

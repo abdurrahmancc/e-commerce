@@ -3,44 +3,84 @@
   "WorkspaceRootPath": "F:\\sql-e-commerce\\e-commerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\models\\account\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:models\\account\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\helpers\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:helpers\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\services\\account\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:services\\account\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\userjwtclaimsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\userjwtclaimsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\models\\account\\userregistermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:models\\account\\userregistermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\services\\account\\registerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:services\\account\\registerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\profiles\\userregisterprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:profiles\\userregisterprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\registerresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\registerresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\profiles\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:profiles\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\controllers\\account\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:controllers\\account\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\interfaces\\iloginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:interfaces\\iloginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\registerrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\registerrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\registerresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\registerresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\profiles\\userloginprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:profiles\\userloginprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\models\\account\\userloginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:models\\account\\userloginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\controllers\\account\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:controllers\\account\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\controllers\\account\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:controllers\\account\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\interfaces\\iregisterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:interfaces\\iregisterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\dtos\\account\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:dtos\\account\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|f:\\sql-e-commerce\\e-commerce\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52328719-9C9A-4DD1-88C9-8BB2BBB347C4}|e-commerce.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,87 +99,75 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Models\\Account\\UserModel.cs",
-              "RelativeDocumentMoniker": "Models\\Account\\UserModel.cs",
-              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Models\\Account\\UserModel.cs",
-              "RelativeToolTip": "Models\\Account\\UserModel.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAADwvy8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T18:57:21.356Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-26T20:16:54.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAgwIoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UserJwtClaimsDto.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\UserJwtClaimsDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Account\\UserJwtClaimsDto.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\UserJwtClaimsDto.cs",
+              "RelativeToolTip": "DTOs\\Account\\UserJwtClaimsDto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAmwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T18:54:14.925Z"
+              "WhenOpened": "2025-01-26T19:02:28.401Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Helpers\\JwtService.cs",
+              "RelativeDocumentMoniker": "Helpers\\JwtService.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Helpers\\JwtService.cs",
+              "RelativeToolTip": "Helpers\\JwtService.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAApwDsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T18:13:53.073Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "data\\AppDbContext.cs",
-              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\data\\AppDbContext.cs",
-              "RelativeToolTip": "data\\AppDbContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Title": "LoginService.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Services\\Account\\LoginService.cs",
+              "RelativeDocumentMoniker": "Services\\Account\\LoginService.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Services\\Account\\LoginService.cs",
+              "RelativeToolTip": "Services\\Account\\LoginService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAADwvygAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T18:20:13.569Z"
+              "WhenOpened": "2025-01-26T18:25:51.767Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
+              "Title": "UserLoginProfile.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Profiles\\UserLoginProfile.cs",
+              "RelativeDocumentMoniker": "Profiles\\UserLoginProfile.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Profiles\\UserLoginProfile.cs",
+              "RelativeToolTip": "Profiles\\UserLoginProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T18:16:22.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "RegisterResponseDto.cs",
               "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\RegisterResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Account\\RegisterResponseDto.cs",
               "ToolTip": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\RegisterResponseDto.cs",
               "RelativeToolTip": "DTOs\\Account\\RegisterResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-25T17:39:40.494Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserProfile.cs",
-              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Profiles\\UserProfile.cs",
-              "RelativeDocumentMoniker": "Profiles\\UserProfile.cs",
-              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Profiles\\UserProfile.cs",
-              "RelativeToolTip": "Profiles\\UserProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T17:36:18.521Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IRegisterService.cs",
-              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Interfaces\\IRegisterService.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IRegisterService.cs",
-              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Interfaces\\IRegisterService.cs",
-              "RelativeToolTip": "Interfaces\\IRegisterService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T17:17:14.512Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegisterService.cs",
-              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Services\\Account\\RegisterService.cs",
-              "RelativeDocumentMoniker": "Services\\Account\\RegisterService.cs",
-              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Services\\Account\\RegisterService.cs",
-              "RelativeToolTip": "Services\\Account\\RegisterService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAADwvxMAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T17:13:10.606Z"
             },
             {
               "$type": "Document",
@@ -149,33 +177,165 @@
               "RelativeDocumentMoniker": "DTOs\\Account\\RegisterRequestDto.cs",
               "ToolTip": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\RegisterRequestDto.cs",
               "RelativeToolTip": "DTOs\\Account\\RegisterRequestDto.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-25T16:45:45.895Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginRequestDto.cs",
-              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\LoginRequestDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Account\\LoginRequestDto.cs",
-              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\LoginRequestDto.cs",
-              "RelativeToolTip": "DTOs\\Account\\LoginRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "RegisterService.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Services\\Account\\RegisterService.cs",
+              "RelativeDocumentMoniker": "Services\\Account\\RegisterService.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Services\\Account\\RegisterService.cs",
+              "RelativeToolTip": "Services\\Account\\RegisterService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAYwB0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T18:59:23.57Z"
+              "WhenOpened": "2025-01-25T17:13:10.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRegisterModel.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Models\\Account\\UserRegisterModel.cs",
+              "RelativeDocumentMoniker": "Models\\Account\\UserRegisterModel.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Models\\Account\\UserRegisterModel.cs",
+              "RelativeToolTip": "Models\\Account\\UserRegisterModel.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAcwCIAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T18:57:21.356Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "UserRegisterProfile.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Profiles\\UserRegisterProfile.cs",
+              "RelativeDocumentMoniker": "Profiles\\UserRegisterProfile.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Profiles\\UserRegisterProfile.cs",
+              "RelativeToolTip": "Profiles\\UserRegisterProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T17:36:18.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ILoginService.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Interfaces\\ILoginService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ILoginService.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Interfaces\\ILoginService.cs",
+              "RelativeToolTip": "Interfaces\\ILoginService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T18:23:21.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T19:33:55.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\UserDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Account\\UserDto.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\UserDto.cs",
+              "RelativeToolTip": "DTOs\\Account\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T19:42:55.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Controllers\\Account\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Account\\LoginController.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Controllers\\Account\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\Account\\LoginController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T18:12:51.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginResponseDto.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\LoginResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Account\\LoginResponseDto.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\LoginResponseDto.cs",
+              "RelativeToolTip": "DTOs\\Account\\LoginResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T18:19:34.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserLoginModel.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Models\\Account\\UserLoginModel.cs",
+              "RelativeDocumentMoniker": "Models\\Account\\UserLoginModel.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Models\\Account\\UserLoginModel.cs",
+              "RelativeToolTip": "Models\\Account\\UserLoginModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T18:05:44.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IRegisterService.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Interfaces\\IRegisterService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IRegisterService.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Interfaces\\IRegisterService.cs",
+              "RelativeToolTip": "Interfaces\\IRegisterService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T17:17:14.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "RegisterController.cs",
               "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\Controllers\\Account\\RegisterController.cs",
               "RelativeDocumentMoniker": "Controllers\\Account\\RegisterController.cs",
               "ToolTip": "F:\\sql-e-commerce\\e-commerce\\Controllers\\Account\\RegisterController.cs",
               "RelativeToolTip": "Controllers\\Account\\RegisterController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-25T17:00:58.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "data\\AppDbContext.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\data\\AppDbContext.cs",
+              "RelativeToolTip": "data\\AppDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T18:20:13.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Account\\LoginRequestDto.cs",
+              "ToolTip": "F:\\sql-e-commerce\\e-commerce\\DTOs\\Account\\LoginRequestDto.cs",
+              "RelativeToolTip": "DTOs\\Account\\LoginRequestDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T18:59:23.57Z"
             }
           ]
         }

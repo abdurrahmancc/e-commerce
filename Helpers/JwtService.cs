@@ -1,4 +1,6 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using e_commerce.DTOs.Account;
+using e_commerce.Enums;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -15,13 +17,36 @@ namespace e_commerce.Helpers
             _configuration = configuration;
         }
 
-        public string GenerateJwtToken(string email, string role = "User")
+        public string GenerateJwtToken(UserJwtClaimsDto userClaims)
         {
-            var claims = new[]{
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("Email", email),
-                new Claim(ClaimTypes.Role, role)
+            var claims = new List<Claim>{
+                new Claim(JwtRegisteredClaimNames.Jti, userClaims.Id.ToString()),
+                new Claim("Email", userClaims.Email),
             };
+
+            foreach (var role in userClaims.Role)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
+            }
+
+            var claimsDictionary = new Dictionary<string, string>
+                {
+                    { "Username", userClaims.Username },
+                    { "Country", userClaims.Country },
+                    { "CountryCode", userClaims.CountryCode },
+                    { "FirstName", userClaims.FirstName },
+                    { "LastName", userClaims.LastName }
+                };
+
+            foreach (var claim in claimsDictionary)
+            {
+                if (!string.IsNullOrEmpty(claim.Value))
+                {
+                    claims.Add(new Claim(claim.Key, claim.Value));
+                }
+            }
+
+
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
