@@ -113,11 +113,11 @@ namespace e_commerce.Services
         public List<ProductReadDto> GetProductsByPriceService(int minPrice, int maxPrice)
         {
             var foundProduct = _appDbContext.Products.Where(prod => prod.Price >= minPrice && prod.Price <= maxPrice).ToList();
-            if (foundProduct == null || !foundProduct.Any())
-            {
-                return null;
+            //if (foundProduct == null || !foundProduct.Any())
+            //{
+            //    return null;
 
-            }
+            //}
             return _mapper.Map<List<ProductReadDto>>(foundProduct);
         }
 

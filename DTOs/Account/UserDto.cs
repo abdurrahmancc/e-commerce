@@ -23,7 +23,7 @@ namespace e_commerce.DTOs.Account
 
         public string? PhotoUrl { get; set; }
 
-        public List<UserRole> Role { get; set; }
+        public List<UserRole> Roles { get; set; }
 
         public string? IPAddress { get; set; }
 

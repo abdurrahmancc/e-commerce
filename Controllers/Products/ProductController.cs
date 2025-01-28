@@ -1,10 +1,10 @@
-﻿using e_commerce.DTOs.Products;
+﻿using e_commerce.Core;
+using e_commerce.DTOs.Products;
 using e_commerce.Interfaces;
-using e_commerce.Models.Products;
 using e_commerce.Utilities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace e_commerce.Controllers.Products
 {
@@ -14,19 +14,29 @@ namespace e_commerce.Controllers.Products
     {
 
         private readonly IProductService _productService;
+        private readonly UserTokenContext _userTokenContext;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, UserTokenContext userTokenContext, IHttpContextAccessor httpContextAccessor)
         {
             _productService = productService;
+            _userTokenContext = userTokenContext;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
         [HttpGet]
         [Route("get-products")]
+        [Authorize(Roles ="User")]
         public async Task<ActionResult> GetAllProducts([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
         {
             var responseData = await _productService.GetAllProductsService(pageNumber, pageSize);
 
+            var userTokenContext = _httpContextAccessor.HttpContext?.Items["UserTokenContext"] as UserTokenContext;
+            var userId = userTokenContext?.Id.ToString();
+
+            
+            
             if (responseData.Items == null || !responseData.Items.Any())
             {
                 return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { $"dose not exit products" }, 404, "Validation failed"));
@@ -53,6 +63,7 @@ namespace e_commerce.Controllers.Products
 
 
         //POST: http://localhost:5121/v1/api/products create a product
+        [Authorize(Roles = "User")]
         [HttpPost]
         public async Task<IActionResult> CreateProducts([FromBody] ProductCreateDto productData)
         {

@@ -32,7 +32,7 @@ namespace e_commerce.Services.Account
                      Id = user.Id,
                     Email = user.Email,
                     Username = user.Username,
-                    Role = user.Role,
+                    Roles = user.Roles,
                     Country = user.Country,
                     CountryCode= user.CountryCode,
                     FirstName = user.FirstName,

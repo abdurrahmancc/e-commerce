@@ -32,7 +32,7 @@ namespace e_commerce.Models.Account
 
         public string? PhotoUrl { get; set; }
 
-        public List<UserRole> Role { get; set; } = new List<UserRole> { UserRole.User};
+        public List<UserRole> Roles { get; set; } = new List<UserRole> { UserRole.User};
 
         public string? IPAddress { get; set; }
 

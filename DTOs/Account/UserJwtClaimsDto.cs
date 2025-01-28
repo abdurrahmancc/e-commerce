@@ -14,7 +14,7 @@ namespace e_commerce.DTOs.Account
         [Required]
         public string Username { get; set; }
 
-        public List<UserRole> Role { get; set; } = new List<UserRole> { UserRole.User };
+        public List<UserRole> Roles { get; set; } = new List<UserRole> { UserRole.User };
 
         public string? Country { get; set; }
 

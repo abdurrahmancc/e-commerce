@@ -1,6 +1,8 @@
+using e_commerce.Core;
 using e_commerce.data;
 using e_commerce.Helpers;
 using e_commerce.Interfaces;
+using e_commerce.Middleware;
 using e_commerce.Profiles;
 using e_commerce.Services;
 using e_commerce.Services.Account;
@@ -20,6 +22,8 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<UserTokenContext>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAutoMapper(typeof(UserLoginProfile));
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -109,6 +113,9 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 /*================================ Middleware Configuration ================================*/
+
+// JwtMiddleware register
+app.UseMiddleware<JwtMiddleware>();
 
 // Serve static files from "wwwroot"
 app.UseStaticFiles();

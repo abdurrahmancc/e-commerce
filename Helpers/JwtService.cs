@@ -20,22 +20,39 @@ namespace e_commerce.Helpers
         public string GenerateJwtToken(UserJwtClaimsDto userClaims)
         {
             var claims = new List<Claim>{
-                new Claim(JwtRegisteredClaimNames.Jti, userClaims.Id.ToString()),
-                new Claim("Email", userClaims.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.NameIdentifier, userClaims.Id.ToString()),
+                new Claim(ClaimTypes.Email, userClaims.Email),
+                new Claim(ClaimTypes.Name, userClaims.Username)
             };
 
-            foreach (var role in userClaims.Role)
+            if (userClaims.Roles != null && userClaims.Roles.Any())
             {
-                claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
+                claims.Add(new Claim(ClaimTypes.Role, string.Join(",", userClaims.Roles)));
+            }
+
+            var roles = "";
+
+            foreach (var role in userClaims.Roles)
+            {
+                roles = roles + role.ToString() + ",";
+            }
+            if (roles.EndsWith(","))
+            {
+                roles = roles.Substring(0, roles.Length - 1);
             }
 
             var claimsDictionary = new Dictionary<string, string>
                 {
-                    { "Username", userClaims.Username },
-                    { "Country", userClaims.Country },
-                    { "CountryCode", userClaims.CountryCode },
-                    { "FirstName", userClaims.FirstName },
-                    { "LastName", userClaims.LastName }
+                    { "Username", userClaims.Username ?? string.Empty},
+                    { "Country", userClaims.Country ?? string.Empty},
+                    { "CountryCode", userClaims.CountryCode ?? string.Empty},
+                    { "FirstName", userClaims.FirstName ?? string.Empty},
+                    { "LastName", userClaims.LastName ?? string.Empty},
+                    {"Email", userClaims.Email ?? string.Empty},
+                    {"Roles",  string.IsNullOrEmpty(roles) ? string.Empty : roles },
+                    {"UserId", userClaims.Id.ToString() }
+
                 };
 
             foreach (var claim in claimsDictionary)
@@ -47,8 +64,8 @@ namespace e_commerce.Helpers
             }
 
 
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var keyString = _configuration["Jwt:Key"] ?? throw new InvalidOperationException("Jwt:Key is not configured.");
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyString));
             var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
@@ -63,6 +80,42 @@ namespace e_commerce.Helpers
 
             return tokenValue;
         }
+
+        public ClaimsPrincipal? VerifyJwtToken(string token)
+        {
+            var keyString = _configuration["Jwt:Key"] ?? throw new InvalidOperationException("Jwt:Key is not configured.");
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyString));
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            try
+            {
+                var validationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = _configuration["Jwt:Issuer"],
+
+                    ValidateAudience = true,
+                    ValidAudience = _configuration["Jwt:Audience"],
+
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = key,
+
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out _);
+                return principal;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Token validation failed: {ex.Message}");
+                return null;
+            }
+        }
+
+
     }
 }
 
