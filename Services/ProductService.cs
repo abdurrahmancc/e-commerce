@@ -4,6 +4,7 @@ using e_commerce.DTOs.Products;
 using e_commerce.Interfaces;
 using e_commerce.Models.Products;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace e_commerce.Services
 {
@@ -77,10 +78,15 @@ namespace e_commerce.Services
             newProduct.UpdatedAt = DateTime.UtcNow;
             newProduct.CreatedAt = DateTime.UtcNow;
             newProduct.Date = DateTime.UtcNow;
+            if (productData.Specifications != null)
+            {
+                newProduct.Specifications = JsonConvert.SerializeObject(productData.Specifications);
+            }
             await _appDbContext.AddAsync(newProduct);
             await _appDbContext.SaveChangesAsync();
 
-            return _mapper.Map<ProductReadDto>(newProduct);
+            return _mapper.Map<ProductReadDto>(newProduct); ;
+
         }
 
 

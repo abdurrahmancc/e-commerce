@@ -31,27 +31,12 @@ namespace e_commerce.Helpers
                 claims.Add(new Claim(ClaimTypes.Role, string.Join(",", userClaims.Roles)));
             }
 
-            var roles = "";
-
-            foreach (var role in userClaims.Roles)
-            {
-                roles = roles + role.ToString() + ",";
-            }
-            if (roles.EndsWith(","))
-            {
-                roles = roles.Substring(0, roles.Length - 1);
-            }
-
             var claimsDictionary = new Dictionary<string, string>
                 {
-                    { "Username", userClaims.Username ?? string.Empty},
                     { "Country", userClaims.Country ?? string.Empty},
                     { "CountryCode", userClaims.CountryCode ?? string.Empty},
                     { "FirstName", userClaims.FirstName ?? string.Empty},
                     { "LastName", userClaims.LastName ?? string.Empty},
-                    {"Email", userClaims.Email ?? string.Empty},
-                    {"Roles",  string.IsNullOrEmpty(roles) ? string.Empty : roles },
-                    {"UserId", userClaims.Id.ToString() }
 
                 };
 

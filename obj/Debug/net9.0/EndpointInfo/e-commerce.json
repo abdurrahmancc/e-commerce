@@ -286,8 +286,8 @@
       },
       "ProductCreateDto": {
         "required": [
-          "name",
-          "price"
+          "fullName",
+          "name"
         ],
         "type": "object",
         "properties": {
@@ -300,13 +300,17 @@
             "minLength": 2,
             "type": "string"
           },
+          "fullName": {
+            "minLength": 1,
+            "type": "string"
+          },
           "price": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "regularPrice": {
-            "type": "integer",
-            "format": "int32"
+            "type": "number",
+            "format": "double"
           },
           "quantity": {
             "type": "integer",
@@ -333,22 +337,55 @@
             "nullable": true
           },
           "review": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "img": {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "description": {
             "type": "string",
             "nullable": true
           },
-          "updatedAt": {
+          "badge": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortFeatures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "specifications": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "createdAt": {
             "type": "string",
             "format": "date-time"
           },
-          "createdAt": {
+          "updatedAt": {
             "type": "string",
             "format": "date-time"
           }
@@ -382,10 +419,6 @@
             "type": "string"
           },
           "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "ipAddress": {
             "type": "string",
             "nullable": true
           },
