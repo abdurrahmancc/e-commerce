@@ -5,6 +5,9 @@ using e_commerce.Interfaces;
 using e_commerce.Models.Products;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using e_commerce.Helpers;
+using System.Linq;
+using e_commerce.Enums;
 
 namespace e_commerce.Services
 {
@@ -78,6 +81,9 @@ namespace e_commerce.Services
             newProduct.UpdatedAt = DateTime.UtcNow;
             newProduct.CreatedAt = DateTime.UtcNow;
             newProduct.Date = DateTime.UtcNow;
+            newProduct.CurrencySymbol = CurrencyService.GetCurrencySymbolByCode(productData.Currency);
+            newProduct.Currency = CurrencyService.GetCurrencyCodeBySymbol(newProduct.CurrencySymbol);
+ ;
             if (productData.Specifications != null)
             {
                 newProduct.Specifications = JsonConvert.SerializeObject(productData.Specifications);
@@ -92,7 +98,7 @@ namespace e_commerce.Services
 
         public List<ProductReadDto>? GetProductsBySearchValueService(string searchData)
         {
-            var searchResultProducts = _appDbContext.Products.Where(prod => prod.Name.Contains(searchData, StringComparison.OrdinalIgnoreCase)).ToList();
+            var searchResultProducts = _appDbContext.Products.Where(prod => EF.Functions.Like(prod.Name, $"%{searchData}%")).ToList();
 
             if (searchResultProducts == null || !searchResultProducts.Any())
             {

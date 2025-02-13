@@ -4,6 +4,6 @@ namespace e_commerce.Interfaces
 {
     public interface ILoginService
     {
-        Task<LoginResponseDto?> LoginUserService(LoginRequestDto loginData);
+        Task<LoginResponseDto> LoginUserService(LoginRequestDto loginData);
     }
 }

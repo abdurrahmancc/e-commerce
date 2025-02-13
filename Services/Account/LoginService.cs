@@ -22,7 +22,7 @@ namespace e_commerce.Services.Account
             _jwtService = jwtService;
             _mapper = mapper;
         }
-      public async  Task<LoginResponseDto?> LoginUserService(LoginRequestDto loginData)
+      public async  Task<LoginResponseDto> LoginUserService(LoginRequestDto loginData)
         {
 
             var user = await _appDbContext.Users.FirstOrDefaultAsync(u => (u.Email == loginData.Email || u.Username == loginData.Email) && u.Password == loginData.Password);

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using e_commerce.Enums;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,11 +14,12 @@ namespace e_commerce.DTOs.Products
         [Required(ErrorMessage = "Product Name is required")]
         public string FullName { get; set; } = string.Empty;
         public decimal Price { get; set; }
+        public string Currency { get; set; }
         public decimal RegularPrice { get; set; }
         public int Quantity { get; set; }
         public int ReviewQuantity { get; set; }
-        public string Category { get; set; } = string.Empty;
-        public string SubCategory { get; set; } = string.Empty;
+        public List<string> Categories { get; set; }
+        public List<string> SubCategories { get; set; }
         public DateTime Date { get; set; } = DateTime.MinValue;
         public string Status { get; set; } = string.Empty;
         public int Review { get; set; } = 0;

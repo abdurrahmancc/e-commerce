@@ -25,8 +25,8 @@ namespace e_commerce.Controllers.Products
         }
 
 
-        [HttpGet]
-        [Route("get-products")]
+
+        [HttpGet("get-products")]
         [Authorize(Roles ="User")]
         public async Task<ActionResult> GetAllProducts([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
         {
@@ -74,8 +74,7 @@ namespace e_commerce.Controllers.Products
 
 
         //GET: /v1/api/products/get-product-search-value/?searchData=app get products by search value
-        [HttpGet]
-        [Route("get-product-search-value")]
+        [HttpGet("get-product-search-value")]
         public IActionResult GetProductsBySearchValue(string searchData)
         {
             var result = _productService.GetProductsBySearchValueService(searchData);
@@ -89,8 +88,7 @@ namespace e_commerce.Controllers.Products
 
 
         //POST: v1/api/products/getProductsByIds get products by multiple ids
-        [HttpPost]
-        [Route("get-products-by-ids")]
+        [HttpPost("get-products-by-ids")]
         public IActionResult GetProductsByIds(List<Guid> ids)
         {
 
@@ -105,8 +103,7 @@ namespace e_commerce.Controllers.Products
 
 
         //GET: http://localhost:5121/v1/api/products/getProductByPrice?minPrice=10&maxPrice=100 get product by min and max prices
-        [HttpGet]
-        [Route("get-product-by-price")]
+        [HttpGet("get-product-by-price")]
         public IActionResult GetProductsByPrice(int minPrice = 5, int maxPrice = 1000)
         {
             var foundProduct = _productService.GetProductsByPriceService(minPrice, maxPrice);
@@ -116,5 +113,9 @@ namespace e_commerce.Controllers.Products
             }
             return Ok(ApiResponse<List<ProductReadDto>>.SuccessResponse(foundProduct, 200, "successful"));
         }
+
+
+
+
     }
 }

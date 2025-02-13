@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using e_commerce.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace e_commerce.DTOs.Products
@@ -9,11 +10,13 @@ namespace e_commerce.DTOs.Products
         public string Name { get; set; }
         public string FullName { get; set; } 
         public decimal Price { get; set; }
+        public string Currency { get; set; }
+        public string CurrencySymbol { get; set; }
         public decimal RegularPrice { get; set; }
         public int Quantity { get; set; }
         public int ReviewQuantity { get; set; }
-        public string Category { get; set; }
-        public string SubCategory { get; set; } 
+        public List<string> Categories { get; set; }
+        public List<string> SubCategories { get; set; }
         public DateTime Date { get; set; } 
         public string Status { get; set; } 
         public int Review { get; set; } = 0;
