@@ -13,6 +13,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using dotenv.net;
+using e_commerce.Services.FilesManagement;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +26,9 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<FilestService>();
 builder.Services.AddScoped<UserTokenContext>();
+builder.Services.AddHttpClient<FilesManagementHelper>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAutoMapper(typeof(UserLoginProfile));
@@ -37,6 +43,16 @@ builder.Services.Configure<ApiBehaviorOptions>(Options => {
         return new BadRequestObjectResult(ApiResponse<Object>.ErrorResponse(errors, 400, "Validation error"));
     };
 });
+
+//cloudinary register
+var cloudinaryAccount = new Account(
+    builder.Configuration["CLOUDINARY:CloudName"],
+    builder.Configuration["CLOUDINARY:ApiKey"],
+    builder.Configuration["CLOUDINARY:ApiSecret"]
+);
+Cloudinary cloudinary = new Cloudinary(cloudinaryAccount);
+cloudinary.Api.Secure = true;
+builder.Services.AddSingleton(cloudinary);
 
 
 
@@ -73,6 +89,8 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
+
 
 
 //configuration JWT Authorization

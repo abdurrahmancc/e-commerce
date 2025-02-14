@@ -4,6 +4,7 @@ using e_commerce.Interfaces;
 using e_commerce.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SixLabors.ImageSharp;
 
 
 namespace e_commerce.Controllers.Products
@@ -27,7 +28,7 @@ namespace e_commerce.Controllers.Products
 
 
         [HttpGet("get-products")]
-        [Authorize(Roles ="User")]
+        //[Authorize(Roles ="User")]
         public async Task<ActionResult> GetAllProducts([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
         {
             var responseData = await _productService.GetAllProductsService(pageNumber, pageSize);
@@ -63,9 +64,9 @@ namespace e_commerce.Controllers.Products
 
 
         //POST: http://localhost:5121/v1/api/products create a product
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         [HttpPost]
-        public async Task<IActionResult> CreateProducts([FromBody] ProductCreateDto productData)
+        public async Task<IActionResult> CreateProducts([FromForm] ProductCreateDto productData)
         {
 
             var result = await _productService.CreateProductService(productData);
@@ -114,6 +115,16 @@ namespace e_commerce.Controllers.Products
             return Ok(ApiResponse<List<ProductReadDto>>.SuccessResponse(foundProduct, 200, "successful"));
         }
 
+        [HttpGet("get-products-by-rating/{rating}")]
+        public async Task<IActionResult> GetProductsByRating(double rating)
+        {
+            var result = await _productService.GetProductByRatingServiceAsync(rating);
+            if (result == null || !result.Any())
+            {
+                return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { $"Product with this rating does not exist" }, 404, "Validation failed"));
+            }
+            return Ok(ApiResponse<List<ProductReadDto>>.SuccessResponse(result, 200, "successful"));
+        }
 
 
 

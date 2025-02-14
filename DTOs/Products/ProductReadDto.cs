@@ -17,10 +17,11 @@ namespace e_commerce.DTOs.Products
         public int ReviewQuantity { get; set; }
         public List<string> Categories { get; set; }
         public List<string> SubCategories { get; set; }
+        public List<string> Tags { get; set; }
         public DateTime Date { get; set; } 
         public string Status { get; set; } 
-        public int Review { get; set; } = 0;
-        public List<string> Img { get; set; }
+        public double Rating { get; set; }
+        public List<string> Images { get; set; }
         public string Description { get; set; } 
         public string Badge { get; set; } 
         public string Model { get; set; } 

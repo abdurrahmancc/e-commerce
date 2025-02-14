@@ -8,18 +8,23 @@ using Newtonsoft.Json;
 using e_commerce.Helpers;
 using System.Linq;
 using e_commerce.Enums;
+using e_commerce.Services.FilesManagement;
+using SixLabors.ImageSharp;
 
 namespace e_commerce.Services
 {
     public class ProductService: IProductService
     {
-
+        private readonly FilestService _filesService;
         private readonly AppDbContext _appDbContext;
         private readonly IMapper _mapper;
-        public ProductService(AppDbContext appDbcontext, IMapper mapper)
+        private readonly FilesManagementHelper _filesManagementHelper;
+        public ProductService(AppDbContext appDbcontext, IMapper mapper, FilestService filesService, FilesManagementHelper filesManagementHelper)
         {
             _appDbContext = appDbcontext;
             _mapper = mapper;
+            _filesService = filesService;
+            _filesManagementHelper = filesManagementHelper;
         }
 
 
@@ -64,7 +69,7 @@ namespace e_commerce.Services
 
 
 
-        public ProductReadDto? GetProductsByIdService(Guid Id)
+        public ProductReadDto GetProductsByIdService(Guid Id)
         {
             var result = _appDbContext.Products.FirstOrDefault(prod => prod.Id == Id);
 
@@ -76,14 +81,28 @@ namespace e_commerce.Services
         public async Task<ProductReadDto> CreateProductService(ProductCreateDto productData)
         {
             var newProduct = _mapper.Map<ProductModel>(productData);
-
+            var images = new List<string>();
             newProduct.Id = Guid.NewGuid();
             newProduct.UpdatedAt = DateTime.UtcNow;
             newProduct.CreatedAt = DateTime.UtcNow;
             newProduct.Date = DateTime.UtcNow;
             newProduct.CurrencySymbol = CurrencyService.GetCurrencySymbolByCode(productData.Currency);
             newProduct.Currency = CurrencyService.GetCurrencyCodeBySymbol(newProduct.CurrencySymbol);
- ;
+
+            foreach (var image in productData.Images) {
+                var result = await _filesService.UploadImageAsync(image);
+
+                if (result != null)
+                {
+                    var isValid = await  _filesManagementHelper.IsValidImageAsync(result);
+                    if (isValid)
+                    {
+                        images.Add(result);
+                    }
+                }
+            }
+            newProduct.Images = images;
+            ;
             if (productData.Specifications != null)
             {
                 newProduct.Specifications = JsonConvert.SerializeObject(productData.Specifications);
@@ -96,7 +115,7 @@ namespace e_commerce.Services
         }
 
 
-        public List<ProductReadDto>? GetProductsBySearchValueService(string searchData)
+        public List<ProductReadDto> GetProductsBySearchValueService(string searchData)
         {
             var searchResultProducts = _appDbContext.Products.Where(prod => EF.Functions.Like(prod.Name, $"%{searchData}%")).ToList();
 
@@ -110,7 +129,7 @@ namespace e_commerce.Services
 
 
 
-        public List<ProductReadDto>? GetProductsByIdsService(List<Guid> Ids)
+        public List<ProductReadDto> GetProductsByIdsService(List<Guid> Ids)
         {
             var foundProducts = _appDbContext.Products.Where(prod => Ids.Contains(prod.Id));
             if (foundProducts == null || !foundProducts.Any())
@@ -125,12 +144,22 @@ namespace e_commerce.Services
         public List<ProductReadDto> GetProductsByPriceService(int minPrice, int maxPrice)
         {
             var foundProduct = _appDbContext.Products.Where(prod => prod.Price >= minPrice && prod.Price <= maxPrice).ToList();
-            //if (foundProduct == null || !foundProduct.Any())
-            //{
-            //    return null;
-
-            //}
             return _mapper.Map<List<ProductReadDto>>(foundProduct);
+        }
+
+
+
+        public async Task<List<ProductReadDto>> GetProductByRatingServiceAsync(double rating)
+        {
+            double tolerance = 0.9;
+
+            // Use asynchronous database querying
+            var foundProducts = await _appDbContext.Products
+                .Where(prod => (Convert.ToDouble(prod.Rating) >= (rating - tolerance))
+                            && (Convert.ToDouble(prod.Rating) <= (rating + tolerance)))
+                .ToListAsync();
+
+            return _mapper.Map<List<ProductReadDto>>(foundProducts);
         }
 
     }

@@ -16,12 +16,12 @@ namespace e_commerce.DTOs.Account
 
         public List<UserRole> Roles { get; set; } = new List<UserRole> { UserRole.User };
 
-        public string? Country { get; set; }
+        public string Country { get; set; }
 
-        public string? CountryCode { get; set; }
+        public string CountryCode { get; set; }
 
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
 
-        public string? LastName { get; set; }
+        public string LastName { get; set; }
     }
 }

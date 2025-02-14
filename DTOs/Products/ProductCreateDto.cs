@@ -11,7 +11,7 @@ namespace e_commerce.DTOs.Products
         [Required(ErrorMessage = "Product Id is required")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "Product name is must be at least 2 character long")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Product Name is required")]
+        [Required(ErrorMessage = "Product FullName is required")]
         public string FullName { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public string Currency { get; set; }
@@ -19,11 +19,13 @@ namespace e_commerce.DTOs.Products
         public int Quantity { get; set; }
         public int ReviewQuantity { get; set; }
         public List<string> Categories { get; set; }
+        public List<string> Tags { get; set; }
         public List<string> SubCategories { get; set; }
         public DateTime Date { get; set; } = DateTime.MinValue;
         public string Status { get; set; } = string.Empty;
-        public int Review { get; set; } = 0;
-        public List<string> Img { get; set; } = new List<string>();
+        public double Rating { get; set; } = 0;
+        [Required]
+        public List<IFormFile> Images { get; set; }
         public string Description { get; set; } = string.Empty;
         public string Badge { get; set; } = string.Empty;
         public string Model { get; set; } = string.Empty;
