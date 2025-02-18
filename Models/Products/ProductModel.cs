@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using e_commerce.Enums;
 using Newtonsoft.Json.Linq;
+using static e_commerce.Enums.ProductEnums;
 
 namespace e_commerce.Models.Products
 {
@@ -25,7 +26,7 @@ namespace e_commerce.Models.Products
         public List<string> SubCategories { get; set; }
         public List<string> Tags { get; set; }
         public DateTime Date { get; set; } = DateTime.MinValue;
-        public string Status { get; set; } = string.Empty;
+        public ProductStatus Status { get; set; }
         public double Rating { get; set; }
 
         [Required]

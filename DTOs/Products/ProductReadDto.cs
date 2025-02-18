@@ -1,6 +1,7 @@
 ﻿using e_commerce.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using static e_commerce.Enums.ProductEnums;
 
 namespace e_commerce.DTOs.Products
 {
@@ -19,11 +20,13 @@ namespace e_commerce.DTOs.Products
         public List<string> SubCategories { get; set; }
         public List<string> Tags { get; set; }
         public DateTime Date { get; set; } 
-        public string Status { get; set; } 
+        public ProductStatus Status { get; set; } 
         public double Rating { get; set; }
         public List<string> Images { get; set; }
         public string Description { get; set; } 
         public string Badge { get; set; } 
+        public string Brand { get; set; }
+        public string Color { get; set; }
         public string Model { get; set; } 
         public string Sku { get; set; } 
         public List<string> ShortFeatures { get; set; }

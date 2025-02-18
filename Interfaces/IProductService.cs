@@ -1,4 +1,5 @@
 ﻿using e_commerce.DTOs.Products;
+using e_commerce.Enums;
 
 namespace e_commerce.Interfaces
 {
@@ -10,12 +11,15 @@ namespace e_commerce.Interfaces
 
         Task<ProductReadDto> CreateProductService(ProductCreateDto productData);
 
-        List<ProductReadDto> GetProductsBySearchValueService(string searchData);
+        Task<PaginatedResult<ProductReadDto>> GetProductsBySearchValueService(string searchData, int pageNumber, int pageSize);
 
         List<ProductReadDto> GetProductsByIdsService(List<Guid> Ids);
 
-        List<ProductReadDto> GetProductsByPriceService(int minPrice, int maxPrice);
-        Task<List<ProductReadDto>> GetProductByRatingServiceAsync(double rating);
+        Task<PaginatedResult<ProductReadDto>> GetProductsByPriceService(int minPrice, int maxPrice, int pageNumber, int pageSize);
+
+        Task<PaginatedResult<ProductReadDto>> GetProductByRatingServiceAsync(double rating, int pageNumber, int pageSize);
+
+        Task<PaginatedResult<ProductReadDto>> GetProductByStatusServiceAsync(int status, int pageNumber, int pageSize);
     }
 }
 

@@ -115,16 +115,48 @@ namespace e_commerce.Services
         }
 
 
-        public List<ProductReadDto> GetProductsBySearchValueService(string searchData)
+        public async Task<PaginatedResult<ProductReadDto>> GetProductsBySearchValueService(string searchData, int pageNumber, int pageSize)
         {
-            var searchResultProducts = _appDbContext.Products.Where(prod => EF.Functions.Like(prod.Name, $"%{searchData}%")).ToList();
+            //var searchResultProducts = _appDbContext.Products.Where(prod => EF.Functions.Like(prod.Name, $"%{searchData}%")).ToList();
 
-            if (searchResultProducts == null || !searchResultProducts.Any())
+
+
+            var foundProducts = await _appDbContext.Products.Where(prod => EF.Functions.Like(prod.Name, $"%{searchData}%")).ToListAsync();
+
+            // Validate pageNumber and pageSize
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
+
+            // Get the total count of products
+            var totalItems = await _appDbContext.Products.Where(prod => EF.Functions.Like(prod.Name, $"%{searchData}%")).CountAsync();
+
+            // Calculate total pages
+            var totalPage = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            // Adjust pageNumber to stay within bounds
+            pageNumber = Math.Max(1, Math.Min(pageNumber, totalPage));
+
+            // Calculate the number of items to skip
+            var skip = (pageNumber - 1) * pageSize;
+
+            // Fetch paginated products
+            var productList = await _appDbContext.Products.Where(prod => EF.Functions.Like(prod.Name, $"%{searchData}%")).Skip(skip).Take(pageSize).ToListAsync();
+
+            // Map to DTO
+            var result = _mapper.Map<List<ProductReadDto>>(productList);
+
+            // Build the paginated response
+            var pager = new PaginatedResult<ProductReadDto>
             {
-                return null;
-            }
+                Items = result,
+                TotalItems = totalItems,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                StartPage = Math.Max(1, pageNumber - 2),
+                EndPage = Math.Min(totalPage, pageNumber + 2)
+            };
 
-            return _mapper.Map<List<ProductReadDto>>(searchResultProducts);
+            return pager;
         }
 
 
@@ -141,15 +173,50 @@ namespace e_commerce.Services
         }
 
 
-        public List<ProductReadDto> GetProductsByPriceService(int minPrice, int maxPrice)
+        public async Task<PaginatedResult<ProductReadDto>> GetProductsByPriceService(int minPrice, int maxPrice, int pageNumber, int pageSize)
         {
-            var foundProduct = _appDbContext.Products.Where(prod => prod.Price >= minPrice && prod.Price <= maxPrice).ToList();
-            return _mapper.Map<List<ProductReadDto>>(foundProduct);
+
+            var foundProducts = await _appDbContext.Products.Where(prod => prod.Price >= minPrice && prod.Price <= maxPrice).ToListAsync();
+
+            // Validate pageNumber and pageSize
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
+
+            // Get the total count of products
+            var totalItems = await _appDbContext.Products.Where(prod => prod.Price >= minPrice && prod.Price <= maxPrice).CountAsync();
+
+            // Calculate total pages
+            var totalPage = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            // Adjust pageNumber to stay within bounds
+            pageNumber = Math.Max(1, Math.Min(pageNumber, totalPage));
+
+            // Calculate the number of items to skip
+            var skip = (pageNumber - 1) * pageSize;
+
+            // Fetch paginated products
+            var productList = await _appDbContext.Products.Where(prod => prod.Price >= minPrice && prod.Price <= maxPrice).Skip(skip).Take(pageSize).ToListAsync();
+
+            // Map to DTO
+            var result = _mapper.Map<List<ProductReadDto>>(productList);
+
+            // Build the paginated response
+            var pager = new PaginatedResult<ProductReadDto>
+            {
+                Items = result,
+                TotalItems = totalItems,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                StartPage = Math.Max(1, pageNumber - 2),
+                EndPage = Math.Min(totalPage, pageNumber + 2)
+            };
+
+            return pager;
         }
 
 
 
-        public async Task<List<ProductReadDto>> GetProductByRatingServiceAsync(double rating)
+        public async Task<PaginatedResult<ProductReadDto>> GetProductByRatingServiceAsync(double rating, int pageNumber, int pageSize)
         {
             double tolerance = 0.9;
 
@@ -159,8 +226,89 @@ namespace e_commerce.Services
                             && (Convert.ToDouble(prod.Rating) <= (rating + tolerance)))
                 .ToListAsync();
 
-            return _mapper.Map<List<ProductReadDto>>(foundProducts);
+
+
+            // Validate pageNumber and pageSize
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
+
+            // Get the total count of products
+            var totalItems = await _appDbContext.Products
+                .Where(prod => (Convert.ToDouble(prod.Rating) >= (rating - tolerance))
+                            && (Convert.ToDouble(prod.Rating) <= (rating + tolerance))).CountAsync();
+
+            // Calculate total pages
+            var totalPage = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            // Adjust pageNumber to stay within bounds
+            pageNumber = Math.Max(1, Math.Min(pageNumber, totalPage));
+
+            // Calculate the number of items to skip
+            var skip = (pageNumber - 1) * pageSize;
+
+            // Fetch paginated products
+            var productList = await _appDbContext.Products.Where(prod => (Convert.ToDouble(prod.Rating) >= (rating - tolerance))
+                            && (Convert.ToDouble(prod.Rating) <= (rating + tolerance))).Skip(skip).Take(pageSize).ToListAsync();
+
+            // Map to DTO
+            var result = _mapper.Map<List<ProductReadDto>>(productList);
+
+            // Build the paginated response
+            var pager = new PaginatedResult<ProductReadDto>
+            {
+                Items = result,
+                TotalItems = totalItems,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                StartPage = Math.Max(1, pageNumber - 2),
+                EndPage = Math.Min(totalPage, pageNumber + 2)
+            };
+
+            return pager;
+
         }
+
+        public async Task<PaginatedResult<ProductReadDto>> GetProductByStatusServiceAsync(int status, int pageNumber, int pageSize)
+        {
+            // Validate pageNumber and pageSize
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
+
+            // Get the total count of products
+            var totalItems = await  _appDbContext.Products.Where(prod => (int)prod.Status == status).CountAsync();
+
+            // Calculate total pages
+            var totalPage = (int)Math.Ceiling((double)totalItems / pageSize);
+
+            // Adjust pageNumber to stay within bounds
+            pageNumber = Math.Max(1, Math.Min(pageNumber, totalPage));
+
+            // Calculate the number of items to skip
+            var skip = (pageNumber - 1) * pageSize;
+
+            // Fetch paginated products
+            var productList = await _appDbContext.Products
+                                     .Where(prod => (int)prod.Status == status).Skip(skip).Take(pageSize).ToListAsync();
+
+            // Map to DTO
+            var result = _mapper.Map<List<ProductReadDto>>(productList);
+
+            // Build the paginated response
+            var pager = new PaginatedResult<ProductReadDto>
+            {
+                Items = result,
+                TotalItems = totalItems,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                StartPage = Math.Max(1, pageNumber - 2),
+                EndPage = Math.Min(totalPage, pageNumber + 2)
+            };
+
+            return pager;
+        }
+
+
+
 
     }
 }

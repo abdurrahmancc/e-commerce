@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using static e_commerce.Enums.ProductEnums;
 
 namespace e_commerce.DTOs.Products
 {
@@ -22,7 +23,7 @@ namespace e_commerce.DTOs.Products
         public List<string> Tags { get; set; }
         public List<string> SubCategories { get; set; }
         public DateTime Date { get; set; } = DateTime.MinValue;
-        public string Status { get; set; } = string.Empty;
+        public ProductStatus Status { get; set; }
         public double Rating { get; set; } = 0;
         [Required]
         public List<IFormFile> Images { get; set; }

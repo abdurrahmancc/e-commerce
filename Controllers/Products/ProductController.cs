@@ -1,5 +1,6 @@
 ﻿using e_commerce.Core;
 using e_commerce.DTOs.Products;
+using e_commerce.Enums;
 using e_commerce.Interfaces;
 using e_commerce.Utilities;
 using Microsoft.AspNetCore.Authorization;
@@ -75,16 +76,16 @@ namespace e_commerce.Controllers.Products
 
 
         //GET: /v1/api/products/get-product-search-value/?searchData=app get products by search value
-        [HttpGet("get-product-search-value")]
-        public IActionResult GetProductsBySearchValue(string searchData)
+        [HttpGet("get-products-search-value")]
+        public async Task<IActionResult> GetProductsBySearchValue([FromQuery] string searchData, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
         {
-            var result = _productService.GetProductsBySearchValueService(searchData);
-            if (result == null || !result.Any())
+            var result = await  _productService.GetProductsBySearchValueService(searchData, pageNumber, pageSize);
+            if (result == null || result.Items == null || !result.Items.Any())
             {
                 return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { $"Product with this {searchData} dose not exit" }, 404, "Validation failed"));
             }
 
-            return Ok(ApiResponse<List<ProductReadDto>>.SuccessResponse(result, 200, "Success"));
+            return Ok(ApiResponse<PaginatedResult<ProductReadDto>>.SuccessResponse(result, 200, "Success"));
         }
 
 
@@ -104,29 +105,38 @@ namespace e_commerce.Controllers.Products
 
 
         //GET: http://localhost:5121/v1/api/products/getProductByPrice?minPrice=10&maxPrice=100 get product by min and max prices
-        [HttpGet("get-product-by-price")]
-        public IActionResult GetProductsByPrice(int minPrice = 5, int maxPrice = 1000)
+        [HttpGet("get-products-by-price")]
+        public async Task<IActionResult> GetProductsByPrice([FromQuery] int minPrice = 5, [FromQuery] int maxPrice = 1000, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
         {
-            var foundProduct = _productService.GetProductsByPriceService(minPrice, maxPrice);
-            if (foundProduct == null || !foundProduct.Any())
+            var result = await _productService.GetProductsByPriceService(minPrice, maxPrice, pageNumber, pageSize);
+            if (result == null || result.Items == null || !result.Items.Any())
             {
                 return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { $"Product with these prices dose not exit" }, 404, "Validation failed"));
             }
-            return Ok(ApiResponse<List<ProductReadDto>>.SuccessResponse(foundProduct, 200, "successful"));
+            return Ok(ApiResponse<PaginatedResult<ProductReadDto>>.SuccessResponse(result, 200, "successful"));
         }
 
         [HttpGet("get-products-by-rating/{rating}")]
-        public async Task<IActionResult> GetProductsByRating(double rating)
+        public async Task<IActionResult> GetProductsByRating([FromRoute] double rating, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
         {
-            var result = await _productService.GetProductByRatingServiceAsync(rating);
-            if (result == null || !result.Any())
+            var result = await _productService.GetProductByRatingServiceAsync(rating, pageNumber, pageSize);
+            if (result == null || result.Items == null || !result.Items.Any())
             {
                 return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { $"Product with this rating does not exist" }, 404, "Validation failed"));
             }
-            return Ok(ApiResponse<List<ProductReadDto>>.SuccessResponse(result, 200, "successful"));
+            return Ok(ApiResponse<PaginatedResult<ProductReadDto>>.SuccessResponse(result, 200, "successful"));
         }
 
-
+        [HttpGet("get-products-by-status/{status}")]
+        public async Task<IActionResult> GetProductsByStatus([FromRoute] int status, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
+        {
+            var res = await _productService.GetProductByStatusServiceAsync(status, pageNumber, pageSize);
+            if (res == null || res.Items == null || !res.Items.Any())
+            {
+                return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { $"Product with this status does not exist" }, 404, "Validation failed"));
+            }
+            return Ok(ApiResponse<PaginatedResult<ProductReadDto>>.SuccessResponse(res, 200, "successful"));
+        }
 
     }
 }

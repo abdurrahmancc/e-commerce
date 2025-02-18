@@ -226,7 +226,7 @@
                     "format": "date-time"
                   },
                   "Status": {
-                    "type": "string"
+                    "$ref": "#/components/schemas/ProductStatus"
                   },
                   "Rating": {
                     "type": "number",
@@ -358,7 +358,7 @@
         }
       }
     },
-    "/v1/api/products/get-product-search-value": {
+    "/v1/api/products/get-products-search-value": {
       "get": {
         "tags": [
           "Product"
@@ -369,6 +369,24 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 3
             }
           }
         ],
@@ -422,7 +440,7 @@
         }
       }
     },
-    "/v1/api/products/get-product-by-price": {
+    "/v1/api/products/get-products-by-price": {
       "get": {
         "tags": [
           "Product"
@@ -444,6 +462,24 @@
               "type": "integer",
               "format": "int32",
               "default": 1000
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 3
             }
           }
         ],
@@ -467,6 +503,65 @@
             "schema": {
               "type": "number",
               "format": "double"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/api/products/get-products-by-status/{status}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 3
             }
           }
         ],
@@ -530,6 +625,16 @@
           }
         },
         "additionalProperties": false
+      },
+      "ProductStatus": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "RegisterRequestDto": {
         "required": [

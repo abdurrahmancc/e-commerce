@@ -191,43 +191,6 @@
   },
   {
     "ContainingType": "e_commerce.Controllers.Products.ProductController",
-    "Method": "GetProductsByPrice",
-    "RelativePath": "v1/api/products/get-product-by-price",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "minPrice",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "maxPrice",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "e_commerce.Controllers.Products.ProductController",
-    "Method": "GetProductsBySearchValue",
-    "RelativePath": "v1/api/products/get-product-search-value",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "searchData",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "e_commerce.Controllers.Products.ProductController",
     "Method": "GetAllProducts",
     "RelativePath": "v1/api/products/get-products",
     "HttpMethod": "GET",
@@ -281,6 +244,37 @@
   },
   {
     "ContainingType": "e_commerce.Controllers.Products.ProductController",
+    "Method": "GetProductsByPrice",
+    "RelativePath": "v1/api/products/get-products-by-price",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "minPrice",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxPrice",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.Products.ProductController",
     "Method": "GetProductsByRating",
     "RelativePath": "v1/api/products/get-products-by-rating/{rating}",
     "HttpMethod": "GET",
@@ -291,6 +285,68 @@
         "Name": "rating",
         "Type": "System.Double",
         "IsRequired": true
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.Products.ProductController",
+    "Method": "GetProductsByStatus",
+    "RelativePath": "v1/api/products/get-products-by-status/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.Products.ProductController",
+    "Method": "GetProductsBySearchValue",
+    "RelativePath": "v1/api/products/get-products-search-value",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchData",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
