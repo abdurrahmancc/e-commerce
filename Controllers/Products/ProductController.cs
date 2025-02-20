@@ -62,6 +62,17 @@ namespace e_commerce.Controllers.Products
             return Ok(ApiResponse<ProductReadDto>.SuccessResponse(result, 200, "Get successful"));
         }
 
+        [HttpDelete("delete-product-by-id")]
+        public async Task<IActionResult> DeleteProductById(Guid id)
+        {
+            var result = await _productService.DeleteProductByIdService(id);
+
+            if (!result)
+            {
+                return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { "product with this id does not exist" }, 404, "Validation failed"));
+            }
+            return Ok(ApiResponse<string>.SuccessResponse("Deleted", 200, "Delete successful"));
+        }
 
 
         //POST: http://localhost:5121/v1/api/products create a product

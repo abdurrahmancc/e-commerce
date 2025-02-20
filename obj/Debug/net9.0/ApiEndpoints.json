@@ -191,6 +191,22 @@
   },
   {
     "ContainingType": "e_commerce.Controllers.Products.ProductController",
+    "Method": "DeleteProductById",
+    "RelativePath": "v1/api/products/delete-product-by-id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.Products.ProductController",
     "Method": "GetAllProducts",
     "RelativePath": "v1/api/products/get-products",
     "HttpMethod": "GET",

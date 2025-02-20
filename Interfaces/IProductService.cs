@@ -1,5 +1,6 @@
 ﻿using e_commerce.DTOs.Products;
 using e_commerce.Enums;
+using e_commerce.Services;
 
 namespace e_commerce.Interfaces
 {
@@ -8,6 +9,8 @@ namespace e_commerce.Interfaces
         Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int currentPage, int pageSize);
 
         ProductReadDto GetProductsByIdService(Guid Id);
+
+        Task<bool> DeleteProductByIdService(Guid id);
 
         Task<ProductReadDto> CreateProductService(ProductCreateDto productData);
 

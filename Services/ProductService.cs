@@ -19,12 +19,14 @@ namespace e_commerce.Services
         private readonly AppDbContext _appDbContext;
         private readonly IMapper _mapper;
         private readonly FilesManagementHelper _filesManagementHelper;
-        public ProductService(AppDbContext appDbcontext, IMapper mapper, FilestService filesService, FilesManagementHelper filesManagementHelper)
+        private readonly FilestService _filestService;
+        public ProductService(AppDbContext appDbcontext, IMapper mapper, FilestService filesService, FilesManagementHelper filesManagementHelper, FilestService filestService)
         {
             _appDbContext = appDbcontext;
             _mapper = mapper;
             _filesService = filesService;
             _filesManagementHelper = filesManagementHelper;
+            _filestService = filestService;
         }
 
 
@@ -76,7 +78,28 @@ namespace e_commerce.Services
             return result == null ? null : _mapper.Map<ProductReadDto>(result);
         }
 
+        public async Task<bool> DeleteProductByIdService(Guid id)
+        {
 
+            var result =  _appDbContext.Products.FirstOrDefault(prod => prod.Id == id);
+            if (result == null)
+            {
+                return false;
+            }
+
+            var deleteTasks = result.Images.Select(imageUrl => _filestService.DeleteImageAsync(imageUrl));
+            var deleteResults = await Task.WhenAll(deleteTasks);
+
+
+            if (deleteResults.All(success => success))
+            {
+                _appDbContext.Products.Remove(result);
+                await _appDbContext.SaveChangesAsync();
+
+                return true;
+            }
+            return false;
+        }
 
         public async Task<ProductReadDto> CreateProductService(ProductCreateDto productData)
         {
