@@ -31,7 +31,7 @@ namespace e_commerce.Services
 
 
 
-        public async Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int pageNumber, int pageSize)
+        public async Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int pageNumber, int pageSize, string catg, decimal? minPrice, decimal? maxPrice, decimal? rating, int? status, string tag)
         {
             // Validate pageNumber and pageSize
             if (pageNumber < 1) pageNumber = 1;
@@ -49,8 +49,19 @@ namespace e_commerce.Services
             // Calculate the number of items to skip
             var skip = (pageNumber - 1) * pageSize;
 
+            string searchText =  "";
+
             // Fetch paginated products
-            var productList = await _appDbContext.Products.Skip(skip).Take(pageSize).ToListAsync();
+            var productList = await _appDbContext.Products
+                .Where(p =>
+                    (string.IsNullOrEmpty(searchText) || p.Name.ToLower().Contains(catg) || p.FullName.ToLower().Contains(catg)) &&
+                    (!minPrice.HasValue || p.Price >= minPrice.Value) &&
+                    (!maxPrice.HasValue || p.Price <= maxPrice.Value)
+                )
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync();
+
 
             // Map to DTO
             var result = _mapper.Map<List<ProductReadDto>>(productList);

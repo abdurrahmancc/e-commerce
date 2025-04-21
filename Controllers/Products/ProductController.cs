@@ -30,15 +30,22 @@ namespace e_commerce.Controllers.Products
 
         [HttpGet("get-products")]
         //[Authorize(Roles ="User")]
-        public async Task<ActionResult> GetAllProducts([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 3)
+        public async Task<ActionResult> GetAllProducts(
+            [FromQuery] int pageNumber = 1, 
+            [FromQuery] int pageSize = 3, 
+            [FromQuery] string catg = null, 
+            [FromQuery] decimal? minPrice = null, 
+            [FromQuery] decimal? maxPrice = null, 
+            [FromQuery] decimal? rating = null,
+            [FromQuery] int? status = null,
+            [FromQuery] string tag = null
+         )
         {
-            var responseData = await _productService.GetAllProductsService(pageNumber, pageSize);
+            var responseData = await _productService.GetAllProductsService(pageNumber, pageSize, catg, minPrice, maxPrice, rating, status, tag);
 
             var userTokenContext = _httpContextAccessor.HttpContext?.Items["UserTokenContext"] as UserTokenContext;
             var userId = userTokenContext?.Id.ToString();
-
-            
-            
+            var user = _httpContextAccessor.HttpContext.User;
             if (responseData.Items == null || !responseData.Items.Any())
             {
                 return NotFound(ApiResponse<object>.ErrorResponse(new List<string> { $"dose not exit products" }, 404, "Validation failed"));
@@ -46,8 +53,6 @@ namespace e_commerce.Controllers.Products
 
             return Ok(ApiResponse<PaginatedResult<ProductReadDto>>.SuccessResponse(responseData, 200, "Get successful"));
         }
-
-
 
 
         //GET:  v1/api/products/GetProductsById/id--- get product by id

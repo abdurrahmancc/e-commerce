@@ -164,3 +164,12 @@ F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Newtonsoft.Json.dll
 F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\CloudinaryDotNet.dll
 F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\dotenv.net.dll
 F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\SixLabors.ImageSharp.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+F:\sql-e-commerce\e-commerce\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll

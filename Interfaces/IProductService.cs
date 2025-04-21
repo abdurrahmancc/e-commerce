@@ -1,4 +1,5 @@
-﻿using e_commerce.DTOs.Products;
+﻿using Azure;
+using e_commerce.DTOs.Products;
 using e_commerce.Enums;
 using e_commerce.Services;
 
@@ -6,7 +7,7 @@ namespace e_commerce.Interfaces
 {
     public interface IProductService
     {
-        Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int currentPage, int pageSize);
+        Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int currentPage, int pageSize, string catg, decimal? minPrice, decimal? maxPrice, decimal? rating, int? status, string tag);
 
         ProductReadDto GetProductsByIdService(Guid Id);
 
