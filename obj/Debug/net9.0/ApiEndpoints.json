@@ -224,6 +224,11 @@
         "IsRequired": false
       },
       {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "catg",
         "Type": "System.String",
         "IsRequired": false

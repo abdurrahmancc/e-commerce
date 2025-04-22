@@ -126,6 +126,13 @@
             }
           },
           {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "catg",
             "in": "query",
             "schema": {

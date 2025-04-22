@@ -33,6 +33,7 @@ namespace e_commerce.Controllers.Products
         public async Task<ActionResult> GetAllProducts(
             [FromQuery] int pageNumber = 1, 
             [FromQuery] int pageSize = 3, 
+            [FromQuery] string search = null, 
             [FromQuery] string catg = null, 
             [FromQuery] decimal? minPrice = null, 
             [FromQuery] decimal? maxPrice = null, 
@@ -41,7 +42,7 @@ namespace e_commerce.Controllers.Products
             [FromQuery] string tag = null
          )
         {
-            var responseData = await _productService.GetAllProductsService(pageNumber, pageSize, catg, minPrice, maxPrice, rating, status, tag);
+            var responseData = await _productService.GetAllProductsService(pageNumber, pageSize, search, catg, minPrice, maxPrice, rating, status, tag);
 
             var userTokenContext = _httpContextAccessor.HttpContext?.Items["UserTokenContext"] as UserTokenContext;
             var userId = userTokenContext?.Id.ToString();
