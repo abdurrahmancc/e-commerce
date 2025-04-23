@@ -21,7 +21,7 @@ namespace e_commerce.DTOs.Products
         public List<string> Tags { get; set; }
         public DateTime Date { get; set; } 
         public ProductStatus Status { get; set; } 
-        public double Rating { get; set; }
+        public decimal Rating { get; set; }
         public List<string> Images { get; set; }
         public string Description { get; set; } 
         public string Badge { get; set; } 

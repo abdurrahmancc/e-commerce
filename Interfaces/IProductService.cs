@@ -2,12 +2,13 @@
 using e_commerce.DTOs.Products;
 using e_commerce.Enums;
 using e_commerce.Services;
+using static e_commerce.Enums.ProductEnums;
 
 namespace e_commerce.Interfaces
 {
     public interface IProductService
     {
-        Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int currentPage, int pageSize, string search, string catg, decimal? minPrice, decimal? maxPrice, decimal? rating, int? status, string tag);
+        Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int currentPage, int pageSize, string search, string catg, decimal? minPrice, decimal? maxPrice, decimal? rating, ProductStatus? status, string tag);
 
         ProductReadDto GetProductsByIdService(Guid Id);
 

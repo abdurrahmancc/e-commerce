@@ -10,6 +10,7 @@ using System.Linq;
 using e_commerce.Enums;
 using e_commerce.Services.FilesManagement;
 using SixLabors.ImageSharp;
+using static e_commerce.Enums.ProductEnums;
 
 namespace e_commerce.Services
 {
@@ -31,14 +32,57 @@ namespace e_commerce.Services
 
 
 
-        public async Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int pageNumber, int pageSize, string search, string catg, decimal? minPrice, decimal? maxPrice, decimal? rating, int? status, string tag)
+        public async Task<PaginatedResult<ProductReadDto>> GetAllProductsService(int pageNumber, int pageSize, string search, string catg, decimal? minPrice, decimal? maxPrice, decimal? rating, ProductStatus? status, string tag)
         {
             // Validate pageNumber and pageSize
             if (pageNumber < 1) pageNumber = 1;
             if (pageSize < 1) pageSize = 10;
 
-            // Get the total count of products
-            var totalItems = await _appDbContext.Products.CountAsync();
+            string searchText = search ?? "";
+            var productsQuery = _appDbContext.Products.AsQueryable();
+
+            // Apply search filters
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                productsQuery = productsQuery.Where(p => p.Name.Contains(searchText) || p.FullName.Contains(searchText) || p.Categories.Any(c => EF.Functions.Like(c, "%" + searchText + "%")));
+            }
+
+            // Apply category filter
+            if (!string.IsNullOrEmpty(catg))
+            {
+                productsQuery = productsQuery.Where(p => p.Categories.Any(c => EF.Functions.Like(c, "%" + catg + "%")));
+            }
+
+            // Apply price filters
+            if (minPrice.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.Price >= minPrice.Value);
+            }
+            if (maxPrice.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.Price <= maxPrice.Value);
+            }
+
+            // Apply rating filter
+            if (rating.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.Rating <= rating.Value);
+            }
+
+            // Apply status filter
+            if (status.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.Status == status.Value);
+            }
+
+            // Apply tag filter
+            if (!string.IsNullOrEmpty(tag))
+            {
+                productsQuery = productsQuery.Where(p => p.Tags.Any(tg => EF.Functions.Like(tg, "%" + tag + "%")));
+            }
+
+            // Get the total count of products before pagination
+            var totalItems = await productsQuery.CountAsync(); // Count directly in the DB
 
             // Calculate total pages
             var totalPage = (int)Math.Ceiling((double)totalItems / pageSize);
@@ -46,33 +90,18 @@ namespace e_commerce.Services
             // Adjust pageNumber to stay within bounds
             pageNumber = Math.Max(1, Math.Min(pageNumber, totalPage));
 
-            // Calculate the number of items to skip
+            // Apply pagination (skip and take)
             var skip = (pageNumber - 1) * pageSize;
-
-            string searchText =  search ?? "";
-
-            // Fetch paginated products
-
-            var productList = await _appDbContext.Products
-                .Where(p =>
-                    (p.Name.Contains(searchText) || p.FullName.Contains(searchText) || p.Categories.Any(c => EF.Functions.Like(c, "%" + searchText + "%"))) &&
-                    (p.Categories.Any(c => EF.Functions.Like(c, "%" + catg + "%"))) &&
-                    (!minPrice.HasValue || p.Price >= minPrice.Value) &&
-                    (!maxPrice.HasValue || p.Price <= maxPrice.Value)
-                )
+            var paginatedProducts = await productsQuery
                 .Skip(skip)
                 .Take(pageSize)
+                .Select(p => _mapper.Map<ProductReadDto>(p))
                 .ToListAsync();
-
-
-
-            // Map to DTO
-            var result = _mapper.Map<List<ProductReadDto>>(productList);
 
             // Build the paginated response
             var pager = new PaginatedResult<ProductReadDto>
             {
-                Items = result,
+                Items = paginatedProducts,
                 TotalItems = totalItems,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
@@ -82,6 +111,7 @@ namespace e_commerce.Services
 
             return pager;
         }
+
 
 
 

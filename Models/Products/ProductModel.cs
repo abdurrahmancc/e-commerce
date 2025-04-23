@@ -27,7 +27,7 @@ namespace e_commerce.Models.Products
         public List<string> Tags { get; set; }
         public DateTime Date { get; set; } = DateTime.MinValue;
         public ProductStatus Status { get; set; }
-        public double Rating { get; set; }
+        public decimal Rating { get; set; }
 
         [Required]
         public List<string> Images { get; set; }

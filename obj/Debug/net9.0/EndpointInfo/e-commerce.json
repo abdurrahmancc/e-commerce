@@ -167,8 +167,7 @@
             "name": "status",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "$ref": "#/components/schemas/ProductStatus"
             }
           },
           {

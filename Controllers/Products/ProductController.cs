@@ -6,6 +6,7 @@ using e_commerce.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
+using static e_commerce.Enums.ProductEnums;
 
 
 namespace e_commerce.Controllers.Products
@@ -38,7 +39,7 @@ namespace e_commerce.Controllers.Products
             [FromQuery] decimal? minPrice = null, 
             [FromQuery] decimal? maxPrice = null, 
             [FromQuery] decimal? rating = null,
-            [FromQuery] int? status = null,
+            [FromQuery] ProductStatus? status = null,
             [FromQuery] string tag = null
          )
         {
