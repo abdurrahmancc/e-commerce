@@ -82,7 +82,7 @@ namespace e_commerce.Services
             }
 
             // Get the total count of products before pagination
-            var totalItems = await productsQuery.CountAsync(); // Count directly in the DB
+            var totalItems = await productsQuery.CountAsync();
 
             // Calculate total pages
             var totalPage = (int)Math.Ceiling((double)totalItems / pageSize);
