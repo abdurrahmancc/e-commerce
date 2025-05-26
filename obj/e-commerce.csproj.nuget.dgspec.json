@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\sql-e-commerce\\e-commerce\\e-commerce.csproj": {}
+    "D:\\My-Test-Project\\e-commerce\\e-commerce.csproj": {}
   },
   "projects": {
-    "F:\\sql-e-commerce\\e-commerce\\e-commerce.csproj": {
+    "D:\\My-Test-Project\\e-commerce\\e-commerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\sql-e-commerce\\e-commerce\\e-commerce.csproj",
+        "projectUniqueName": "D:\\My-Test-Project\\e-commerce\\e-commerce.csproj",
         "projectName": "e-commerce",
-        "projectPath": "F:\\sql-e-commerce\\e-commerce\\e-commerce.csproj",
-        "packagesPath": "C:\\Users\\Abdur-Rahman\\.nuget\\packages\\",
-        "outputPath": "F:\\sql-e-commerce\\e-commerce\\obj\\",
+        "projectPath": "D:\\My-Test-Project\\e-commerce\\e-commerce.csproj",
+        "packagesPath": "C:\\Users\\abdur\\.nuget\\packages\\",
+        "outputPath": "D:\\My-Test-Project\\e-commerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Abdur-Rahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abdur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +46,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -127,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
